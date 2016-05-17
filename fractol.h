@@ -14,9 +14,10 @@ typedef struct	s_param
 	void	*img;
 	char	*mdf;
 	int 	bit;
+	int		deca_bit;
 	int		size;
 	int		endian;
-	double	y; 
+	double	y;
 	double 	x;
 	double	x1;
 	double	x2;
@@ -31,6 +32,8 @@ typedef struct	s_param
 	double	c_i;
 	double	z_r;
 	double	z_i;
+	double	tmp_z_r;
+	double	tmp_z_i;
 	int		i;
 	double	tmp;
 }				t_ftol;
@@ -41,5 +44,6 @@ void 	ft_julia(void);
 void 	print_julia(t_ftol *f);
 int		key_funct(int keycode);
 void 	put_pti(t_ftol *f, int x, int y);
+int 	mouse_c(int x, int y, t_ftol *f);
 
 #endif

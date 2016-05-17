@@ -9,7 +9,7 @@ void init_julia(t_ftol *f)
 	f->x2 = 1;
 	f->y1 = -1.2;
 	f->y2 = 1.2;
-	f->im_x = 1024;//(f->x2 - f->x1) * f->zoom;	
+	f->im_x = 1024;//(f->x2 - f->x1) * f->zoom;
 	f->im_y = 1024;//(f->y2 - f->y1) * f->zoom;
 	f->zoom_x = f->im_x / (f->x2 - f->x1);
 	f->zoom_y = f->im_y / (f->y2 - f->y1);
@@ -18,8 +18,8 @@ void init_julia(t_ftol *f)
 
 void boucle_y(t_ftol *f)
 {
-	f->c_r = 0.285;
-	f->c_i = 0.01;
+	f->c_r = f->tmp_z_r;
+	f->c_i = f->tmp_z_i;
 	f->z_r = f->x / f->zoom_x + f->x1;
 	f->z_i = f->y / f->zoom_y + f->y1;
 	f->i = 0;
@@ -33,7 +33,7 @@ void print_julia(t_ftol *f)
 		while (f->y < f->im_y)
 		{
 			boucle_y(f);
-			while (f->z_r * f->z_r + f->z_i * f->z_i < 4 && f->i < f->it_max) 
+			while (f->z_r * f->z_r + f->z_i * f->z_i < 4 && f->i < f->it_max)
 			{
 				f->tmp = f->z_r;
 				f->z_r = f->z_r * f->z_r - f->z_i * f->z_i + f->c_r;
@@ -52,15 +52,17 @@ void ft_julia(void)
 {
 	t_ftol	*f;
 
-	f =	(t_ftol *)malloc(sizeof(t_ftol));
+	f =	(t_ftol *)ft_memalloc(sizeof(t_ftol));
 	f->mlx = mlx_init();
 	f->win = mlx_new_window(f->mlx, 1024, 1024, "Julia");
-	mlx_key_hook(f->win, key_funct, 0);
 	f->img = mlx_new_image(f->mlx, 1024, 1024);
-	f->mdf = mlx_get_data_addr(f->img, &f->bit, &f->size, &f->endian); 
+	f->mdf = mlx_get_data_addr(f->img, &f->bit, &f->size, &f->endian);
 	//put_pti( f, 50, 50);
+	f->deca_bit = f->bit >> 3;
 	print_julia(f);
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
+	mlx_key_hook(f->win, key_funct, 0);
+	mlx_hook(f->win, 6, 0, mouse_c, f);
 	mlx_loop(f->mlx);
 	return;
 }
