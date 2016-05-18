@@ -23,6 +23,11 @@ typedef struct	s_param
 	double	x2;
 	double 	y1;
 	double	y2;
+	double	x1_tmp;
+	double	x2_tmp;
+	double 	y1_tmp;
+	double	y2_tmp;
+
 	double 	zoom_x;
 	double 	zoom_y;
 	int 	it_max;
@@ -34,6 +39,8 @@ typedef struct	s_param
 	double	z_i;
 	double	tmp_z_r;
 	double	tmp_z_i;
+	double	tmp_c_r;
+	double	tmp_c_i;
 	int		i;
 	double	tmp;
 }				t_ftol;
@@ -45,5 +52,11 @@ void 	print_julia(t_ftol *f);
 int		key_funct(int keycode);
 void 	put_pti(t_ftol *f, int x, int y);
 int 	mouse_c(int x, int y, t_ftol *f);
-
+void	ft_mandelbrot(void);
+void	print_mandelbrot(t_ftol *f);
+void	boucle_y2(t_ftol *f);
+void	init_mandelbrot(t_ftol *f);
+void	put_ptig(t_ftol *f, int x, int y);
+int 	mouse_cg(int x, int y, t_ftol *f);
+int zoom(int button, int x, int y, t_ftol *f);
 #endif

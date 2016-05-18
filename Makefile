@@ -7,6 +7,8 @@ SRC = 	main.c \
 		julia.c  \
 		image.c \
 		keyboard.c \
+		mandelbrot.c \
+		zoom.c \
 
 DOTO	=		$(SRC:.c=.o)
 
