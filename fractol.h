@@ -4,6 +4,7 @@
 # include <mlx.h>
 # include "libft/libft.h"
 # include <stdlib.h>
+# include <math.h>
 
 # include <stdio.h>
 
@@ -27,9 +28,11 @@ typedef struct	s_param
 	double	x2_tmp;
 	double 	y1_tmp;
 	double	y2_tmp;
-
+	int 	check;
 	double 	zoom_x;
 	double 	zoom_y;
+	double 	zoom_x_tmp;
+	double 	zoom_y_tmp;
 	int 	it_max;
 	double 	im_x;
 	double 	im_y;
@@ -49,7 +52,7 @@ void 	ft_error(void);
 void 	ft_check(char *str);
 void 	ft_julia(void);
 void 	print_julia(t_ftol *f);
-int		key_funct(int keycode);
+int		key_funct(int keycode, t_ftol *f);
 void 	put_pti(t_ftol *f, int x, int y);
 int 	mouse_c(int x, int y, t_ftol *f);
 void	ft_mandelbrot(void);
@@ -58,5 +61,10 @@ void	boucle_y2(t_ftol *f);
 void	init_mandelbrot(t_ftol *f);
 void	put_ptig(t_ftol *f, int x, int y);
 int 	mouse_cg(int x, int y, t_ftol *f);
-int zoom(int button, int x, int y, t_ftol *f);
+int 	zoom(int button, int x, int y, t_ftol *f);
+void 	init_tmp(t_ftol *f);
+void	ft_fs(void);
+void 	print_fs(t_ftol *f);
+int 	mouse_ct(int x, int y, t_ftol *f);
+void	put_ptiy(t_ftol *f, int x, int y);
 #endif

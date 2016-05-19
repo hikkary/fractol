@@ -1,7 +1,7 @@
 
 #include "fractol.h"
 
-void init_mandelbrot(t_ftol *f)
+void init_fs(t_ftol *f)
 {
 	f->y = 0;
 	f->x = 0;
@@ -16,7 +16,7 @@ void init_mandelbrot(t_ftol *f)
 	f->it_max = 50;
 }
 
-void boucle_y2(t_ftol *f)
+void boucle_y_f(t_ftol *f)
 {
 	f->c_r = f->x /f->zoom_x + f->x1;
 	f->c_i = f->y /f->zoom_y + f->x1;
@@ -25,22 +25,22 @@ void boucle_y2(t_ftol *f)
 	f->i = 0;
 }
 
-void print_mandelbrot(t_ftol *f)
+void print_fs(t_ftol *f)
 {
-	init_mandelbrot(f);
+	init_fs(f);
 	while (f->x < f->im_x)
 	{
 		while (f->y < f->im_y)
 		{
-			boucle_y2(f);
+			boucle_y_f(f);
 			while (f->z_r * f->z_r + f->z_i * f->z_i < 4 && f->i < f->it_max)
 			{
-				f->tmp = f->z_r;
+				f->tmp = fabs(f->z_r * f->z_i);
 				f->z_r = f->z_r * f->z_r - f->z_i * f->z_i + f->c_r;
-				f->z_i = 2 * f->z_i * f->tmp + f->c_i;
+				f->z_i = f->tmp + f->tmp + f->c_i;
 				f->i++;
 			}
-			put_ptig(f, f->x, f->y);
+			put_ptiy(f, f->x, f->y);
 			f->y++;
 		}
 		f->y = 0;
@@ -48,20 +48,20 @@ void print_mandelbrot(t_ftol *f)
 	}
 }
 
-void ft_mandelbrot(void)
+void ft_fs(void)
 {
 	t_ftol	*f;
 
 	f =	(t_ftol *)ft_memalloc(sizeof(t_ftol));
 	f->mlx = mlx_init();
-	f->win = mlx_new_window(f->mlx, 1024, 1024, "Mandelbrot");
+	f->win = mlx_new_window(f->mlx, 1024, 1024, "Fire Ship are meant to fly");
 	f->img = mlx_new_image(f->mlx, 1024, 1024);
 	f->mdf = mlx_get_data_addr(f->img, &f->bit, &f->size, &f->endian);
 	f->deca_bit = f->bit >> 3;
-	print_mandelbrot(f);
+	print_fs(f);
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 	mlx_key_hook(f->win, key_funct, 0);
-	mlx_hook(f->win, 6, 0, mouse_cg, f);
+	mlx_hook(f->win, 6, 0, mouse_ct, f);
 	mlx_loop(f->mlx);
 	return;
 }

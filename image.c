@@ -38,3 +38,22 @@ void put_ptig(t_ftol *f, int x, int y)
 		f->mdf[i + 2] = 0;
 	}
 }
+
+void put_ptiy(t_ftol *f, int x, int y)
+{
+	int		i;
+
+	i = (x * f->deca_bit) + (y * f->size);
+	if (f->i != f->it_max)
+	{
+		f->mdf[i] = (f->i * 255) / f->it_max;
+		f->mdf[i + 1] = (f->i * 255) / f->it_max;
+		f->mdf[i + 2] = 0;
+	}
+	else
+	{
+		f->mdf[i] = 0;
+		f->mdf[i + 1] = 0;
+		f->mdf[i + 2] = 0;
+	}
+}

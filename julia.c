@@ -69,7 +69,7 @@ void ft_julia(void)
 	init_tmp(f);
 	print_julia(f);
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-	mlx_key_hook(f->win, key_funct, 0);
+	mlx_key_hook(f->win, key_funct, f);
 	mlx_hook(f->win, 6, 0, mouse_c, f);
 	mlx_mouse_hook(f->win, zoom,f);
 	mlx_loop(f->mlx);
