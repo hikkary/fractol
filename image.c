@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   image.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zkerkeb <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/22 00:06:57 by zkerkeb           #+#    #+#             */
+/*   Updated: 2016/05/22 00:07:00 by zkerkeb          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
 
-void put_pti(t_ftol *f, int x, int y)
+void	put_pti(t_ftol *f, int x, int y)
 {
 	int		i;
 
@@ -20,7 +31,7 @@ void put_pti(t_ftol *f, int x, int y)
 	}
 }
 
-void put_ptig(t_ftol *f, int x, int y)
+void	put_ptig(t_ftol *f, int x, int y)
 {
 	int		i;
 
@@ -39,7 +50,7 @@ void put_ptig(t_ftol *f, int x, int y)
 	}
 }
 
-void put_ptiy(t_ftol *f, int x, int y)
+void	put_ptiy(t_ftol *f, int x, int y)
 {
 	int		i;
 

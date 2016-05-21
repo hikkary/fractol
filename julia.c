@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zkerkeb <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/21 23:57:48 by zkerkeb           #+#    #+#             */
+/*   Updated: 2016/05/21 23:57:50 by zkerkeb          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
 
-void init_julia(t_ftol *f)
+void	init_julia(t_ftol *f)
 {
 	f->y = 0;
 	f->x = 0;
@@ -9,22 +20,22 @@ void init_julia(t_ftol *f)
 	f->x2 = f->x2_tmp;
 	f->y1 = f->y1_tmp;
 	f->y2 = f->y2_tmp;
-	f->im_x = 1024;//(f->x2 - f->x1) * f->zoom;
-	f->im_y = 1024;//(f->y2 - f->y1) * f->zoom;
-	f->zoom_x = f->im_x / (f->x2 - f->x1);
-	f->zoom_y = f->im_y / (f->y2 - f->y1);
-	f->it_max = 50;
 }
 
-void init_tmp(t_ftol *f)
+void	init_tmp(t_ftol *f)
 {
 	f->x1_tmp = -1;
 	f->x2_tmp = 1;
 	f->y1_tmp = -1.2;
 	f->y2_tmp = 1.2;
+	f->im_x = 1024;
+	f->im_y = 1024;
+	f->zoom_x = f->im_x / (f->x2_tmp - f->x1_tmp);
+	f->zoom_y = f->im_y / (f->y2_tmp - f->y1_tmp);
+	f->it_max = 50;
 }
 
-void boucle_y(t_ftol *f)
+void	boucle_y(t_ftol *f)
 {
 	f->c_r = f->tmp_z_r;
 	f->c_i = f->tmp_z_i;
@@ -33,7 +44,7 @@ void boucle_y(t_ftol *f)
 	f->i = 0;
 }
 
-void print_julia(t_ftol *f)
+void	print_julia(t_ftol *f)
 {
 	init_julia(f);
 	while (f->x < f->im_x)
@@ -56,11 +67,11 @@ void print_julia(t_ftol *f)
 	}
 }
 
-void ft_julia(void)
+void	ft_julia(void)
 {
 	t_ftol	*f;
 
-	f =	(t_ftol *)ft_memalloc(sizeof(t_ftol));
+	f = (t_ftol *)ft_memalloc(sizeof(t_ftol));
 	f->mlx = mlx_init();
 	f->win = mlx_new_window(f->mlx, 1024, 1024, "Julia");
 	f->img = mlx_new_image(f->mlx, 1024, 1024);
@@ -71,7 +82,7 @@ void ft_julia(void)
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 	mlx_key_hook(f->win, key_funct, f);
 	mlx_hook(f->win, 6, 0, mouse_c, f);
-	mlx_mouse_hook(f->win, zoom,f);
+	mlx_mouse_hook(f->win, zoom, f);
 	mlx_loop(f->mlx);
-	return;
+	return ;
 }
