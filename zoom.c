@@ -63,8 +63,8 @@ int		zoom_m(int button, int x, int y, t_ftol *f)
 		f->zoom_y = f->zoom_y / 2;
 		f->it_max -= 10;
 	}
-	f->x1_tmp += x / tz_x - (x / f->zoom_x);
-	f->y1_tmp += y / tz_y - (y / f->zoom_y);
+	f->x1 += x / tz_x - (x / f->zoom_x);
+	f->y1 += y / tz_y - (y / f->zoom_y);
 	print_mandelbrot(f);
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 	return (0);

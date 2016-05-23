@@ -24,10 +24,10 @@ void	init_julia(t_ftol *f)
 
 void	init_tmp(t_ftol *f)
 {
-	f->x1_tmp = -1;
-	f->x2_tmp = 1;
-	f->y1_tmp = -1.2;
-	f->y2_tmp = 1.2;
+	f->x1_tmp = -1.5;
+	f->x2_tmp = 1.5;
+	f->y1_tmp = -1;
+	f->y2_tmp = 1;
 	f->im_x = 1024;
 	f->im_y = 1024;
 	f->zoom_x = f->im_x / (f->x2_tmp - f->x1_tmp);
