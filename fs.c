@@ -39,8 +39,8 @@ void	boucle_y_f(t_ftol *f)
 {
 	f->c_r = f->x / f->zoom_x + f->x1;
 	f->c_i = f->y / f->zoom_y + f->y1;
-	f->z_r = f->tmp_c_r;
-	f->z_i = f->tmp_c_i;
+	f->z_r = f->tmp_z_r;
+	f->z_i = f->tmp_z_i;
 	f->i = 0;
 }
 
@@ -81,7 +81,6 @@ void	ft_fs(void)
 	print_fs(f);
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 	mlx_key_hook(f->win, key_funct, 0);
-	//mlx_hook(f->win, 6, 0, mouse_ct, f);
 	mlx_mouse_hook(f->win, zoom_fs, f);
 	mlx_loop(f->mlx);
 	return ;

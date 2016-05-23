@@ -29,8 +29,8 @@ void	boucle_y2(t_ftol *f)
 {
 	f->c_r = f->x / f->zoom_x + f->x1;
 	f->c_i = f->y / f->zoom_y + f->y1;
-	f->z_r = f->tmp_c_r;
-	f->z_i = f->tmp_c_i;
+	f->z_r = f->tmp_z_r;
+	f->z_i = f->tmp_z_i;
 	f->i = 0;
 }
 

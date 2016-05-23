@@ -64,7 +64,7 @@ void	put_ptiy(t_ftol *f, int x, int y)
 	else
 	{
 		f->mdf[i] = 0;
-		f->mdf[i + 1] = 0;
+		f->mdf[i + 1] = (f->i * 230) / f->it_max;
 		f->mdf[i + 2] = 0;
 	}
 }
