@@ -19,7 +19,7 @@ int		zoom(int button, int x, int y, t_ftol *f)
 
 	mlx_destroy_image(f->mlx, f->img);
 	mlx_clear_window(f->mlx, f->win);
-	f->img = mlx_new_image(f->mlx, 1024, 1024);
+	f->img = mlx_new_image(f->mlx, 800, 800);
 	tz_x = f->zoom_x;
 	tz_y = f->zoom_y;
 	if (button == 5)
@@ -48,7 +48,7 @@ int		zoom_m(int button, int x, int y, t_ftol *f)
 
 	mlx_destroy_image(f->mlx, f->img);
 	mlx_clear_window(f->mlx, f->win);
-	f->img = mlx_new_image(f->mlx, 1024, 1024);
+	f->img = mlx_new_image(f->mlx, 800, 800);
 	tz_x = f->zoom_x;
 	tz_y = f->zoom_y;
 	if (button == 5)
@@ -77,7 +77,7 @@ int		zoom_fs(int button, int x, int y, t_ftol *f)
 
 	mlx_destroy_image(f->mlx, f->img);
 	mlx_clear_window(f->mlx, f->win);
-	f->img = mlx_new_image(f->mlx, 1024, 1024);
+	f->img = mlx_new_image(f->mlx, 800, 800);
 	tz_x = f->zoom_x;
 	tz_y = f->zoom_y;
 	if (button == 5)

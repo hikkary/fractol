@@ -17,6 +17,6 @@ void	ft_error(void)
 	ft_putstr("Liste des Fractales supporte : \n");
 	ft_putstr("- Julia \n");
 	ft_putstr("- Mandelbrot \n");
-	ft_putstr("- Fireship");
+	ft_putstr("- Fireship\n");
 	exit(1);
 }

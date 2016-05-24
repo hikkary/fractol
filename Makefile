@@ -23,7 +23,7 @@ all: $(NAME)
 
 $(NAME): $(DOTO)
 	make -C libft
-	gcc -g $(FLAGS) $(FW) -lft -L ./libft -o $(NAME) $(DOTO)
+	gcc $(FLAGS) $(FW) -lft -L ./libft -o $(NAME) $(DOTO)
 
 %.o: %.c
 	gcc -c $(FLAGS) $< -o $@

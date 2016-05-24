@@ -18,8 +18,8 @@ void	init_tmp_m(t_ftol *f)
 	f->x2 = 0.6;
 	f->y1 = -1.2;
 	f->y2 = 1.2;
-	f->im_x = 1024;
-	f->im_y = 1024;
+	f->im_x = 800;
+	f->im_y = 800;
 	f->zoom_x = f->im_x / (f->x2 - f->x1);
 	f->zoom_y = f->im_y / (f->y2 - f->y1);
 	f->it_max = 50;
@@ -63,8 +63,8 @@ void	ft_mandelbrot(void)
 
 	f = (t_ftol *)ft_memalloc(sizeof(t_ftol));
 	f->mlx = mlx_init();
-	f->win = mlx_new_window(f->mlx, 1024, 1024, "Mandelbrot");
-	f->img = mlx_new_image(f->mlx, 1024, 1024);
+	f->win = mlx_new_window(f->mlx, 800, 800, "Mandelbrot");
+	f->img = mlx_new_image(f->mlx, 800, 800);
 	f->mdf = mlx_get_data_addr(f->img, &f->bit, &f->size, &f->endian);
 	f->deca_bit = f->bit >> 3;
 	init_tmp_m(f);

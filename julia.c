@@ -28,8 +28,8 @@ void	init_tmp(t_ftol *f)
 	f->x2_tmp = 1.5;
 	f->y1_tmp = -1;
 	f->y2_tmp = 1;
-	f->im_x = 1024;
-	f->im_y = 1024;
+	f->im_x = 800;
+	f->im_y = 800;
 	f->zoom_x = f->im_x / (f->x2_tmp - f->x1_tmp);
 	f->zoom_y = f->im_y / (f->y2_tmp - f->y1_tmp);
 	f->it_max = 50;
@@ -73,8 +73,8 @@ void	ft_julia(void)
 
 	f = (t_ftol *)ft_memalloc(sizeof(t_ftol));
 	f->mlx = mlx_init();
-	f->win = mlx_new_window(f->mlx, 1024, 1024, "Julia");
-	f->img = mlx_new_image(f->mlx, 1024, 1024);
+	f->win = mlx_new_window(f->mlx, 800, 800, "Julia");
+	f->img = mlx_new_image(f->mlx, 800, 800);
 	f->mdf = mlx_get_data_addr(f->img, &f->bit, &f->size, &f->endian);
 	f->deca_bit = f->bit >> 3;
 	init_tmp(f);
